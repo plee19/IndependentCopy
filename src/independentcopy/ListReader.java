@@ -11,19 +11,13 @@ public class ListReader implements Reader {
     ArrayList<String> arrayList;
 
     /**
-     * Constructor method for ListReader. Takes ArrayList to use in further methods
-     * @param someList ArrayList<String>: ArrayList to base further methods upon
-     */
-    public ListReader(ArrayList<String> someList) {
-        this.arrayList = someList;
-    }
-
-    /**
      * Reads values in ArrayList. Overrides from Reader.
      * @return String: String value in ArrayList
      */
     @Override
     public String readln() {
+        arrayList = new ArrayList<>();
+        arrayList.add("Java");
         return arrayList.get(arrayList.size() - 1);
     }
 }

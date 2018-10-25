@@ -65,7 +65,7 @@ public class Driver {
 		// Writer writer = new ConsoleWriter();
 		ArrayList<String> arrayList = new ArrayList<>();
 		arrayList.add("Java");
-		Reader reader = new ListReader(arrayList);
+		Reader reader = new ListReader();
 		Writer writer = new ConsoleWriter();
 		
 		// Copy from reader to writer

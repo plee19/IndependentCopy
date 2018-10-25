@@ -11,12 +11,13 @@ import static org.junit.Assert.*;
 public class ListWriterTest {
     ListWriter testWriter;
     ArrayList<String> arrayList;
+    ListReader testReader;
 
     @Before
     public void setUp() throws Exception {
         arrayList = new ArrayList<>();
-        arrayList.add("Java");
-        testWriter = new ListWriter(arrayList);
+        testWriter = new ListWriter();
+        testReader = new ListReader();
     }
 
     @After
@@ -24,7 +25,14 @@ public class ListWriterTest {
     }
 
     @Test
+    public void testGetArrayListNull() {
+        assertNull(testWriter.getArrayList());
+    }
+
+    @Test
     public void testGetArrayList() {
-        assertEquals(arrayList, testWriter.getArrayList());
+        Copier copier = new Copier(testReader, testWriter);
+        copier.copy();
+        assertEquals(1, testWriter.getArrayList().size());
     }
 }

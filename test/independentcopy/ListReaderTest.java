@@ -16,7 +16,7 @@ public class ListReaderTest {
     public void setUp() throws Exception {
         testArray = new ArrayList<>();
         testArray.add("Java");
-        testReader = new ListReader(testArray);
+        testReader = new ListReader();
     }
 
     @After
