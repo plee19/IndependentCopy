@@ -1,13 +1,15 @@
 
 package independentcopy;
 
+import java.util.ArrayList;
+
 /**
  * This example demonstrates a good design -- one that has NO
  * dependency issues. It is not RIGID (Copier can be used with 
  * an unlimited number of Reader and Writer objects); it is not 
  * FRAGILE (the Copier class does not require changes to support 
  * various Readers and Writers -- changes that would break other
- * classes that depend on the Copier class); and it is PROTABLE
+ * classes that depend on the Copier class); and it is PORTABLE
  * (you can use the Copier class in many programs without fear of 
  * problems caused by implementation-specific code, such as KeyboardReader).
  * <p>
@@ -59,15 +61,19 @@ public class Driver {
 		// Comment this out (and uncomment preceeding reader/writer)
 		// to see how switching objects causes no problems with
 		// Copier class because it's Polymorphic!!!
-		Reader reader = new FileReader();
-		Writer writer = new GuiWriter();
+		// Reader reader = new FileReader();
+		// Writer writer = new ConsoleWriter();
+		ArrayList<String> arrayList = new ArrayList<>();
+		arrayList.add("Java");
+		Reader reader = new ListReader(arrayList);
+		Writer writer = new ConsoleWriter();
 		
 		// Copy from reader to writer
 		// Notice that Copier is NOT dependent on implementation of reader/writer
 		// (it is not rigid, fragile or immobile)
 		Copier copier = new Copier( reader, writer );
 		copier.copy();
-		
+
 		// Send end of program message
 		System.out.println("Program ended. Line of reader input copied successfully to writer output.");
 	}
